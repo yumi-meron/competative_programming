@@ -18,7 +18,7 @@ def countSwaps(a):
     for i in a:
         for j in range(len(a)-1):
             if a[j] > a[j+1]:
-                a[j], a[j+1] = a[j+1], a[j]
+                swap(a[j], a[j+1])
                 count += 1
     print(f"Array is sorted in {count} swaps.\nFirst Element: {a[0]}\nLast Element: {a[-1]}")
     
