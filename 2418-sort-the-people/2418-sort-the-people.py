@@ -6,11 +6,18 @@ class Solution(object):
         :rtype: List[str]
         """
         for i in range(len(heights)):
-            for j in range(i+1,len(heights)) :
-                if heights[i]<heights[j]:
-                    heights[i], heights[j] = heights[j], heights[i]
-                    names[i], names[j] = names[j], names[i]
+            max = heights[i]
+            pos = i
+            for j in range(i+1,len(heights)):
+                if heights[j] > max:
+                    max = heights[j]
+                    pos = j
+            heights[i], heights[pos] = heights[pos], heights[i]
+            names[i], names[pos] = names[pos], names[i]
+            
         return names
         
+            
+                
             
         
