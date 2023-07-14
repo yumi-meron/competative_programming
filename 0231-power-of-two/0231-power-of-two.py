@@ -4,6 +4,9 @@ class Solution:
             return True
         elif n<2:
             return False
+        elif n%2 != 0:
+            return False
+        
         
     
         return self.isPowerOfTwo(n/2)
