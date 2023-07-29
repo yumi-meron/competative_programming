@@ -1,12 +1,9 @@
-class Solution(object):
-    def isPowerOfFour(self, n):
-        """
-        :type n: int
-        :rtype: bool
-        """
-        if n<=0:
+class Solution:
+    def isPowerOfFour(self, n: int) -> bool:
+        if n == 1:
+            return True
+        elif n<4:
             return False
-        else:
-            log_n = math.log(n, 4)
-        return log_n.is_integer()
+        return  self.isPowerOfFour(n/4)
+        
         
