@@ -3,8 +3,8 @@ class Solution:
         stack = []
         for i in tokens:
             if i in ['+','*','-','/']:
-                a = int(stack.pop())
-                b = int(stack.pop())
+                a = stack.pop()
+                b = stack.pop()
                 if i == '/':
                     stack.append(int(b/a))
                 elif i == '+':
@@ -14,6 +14,6 @@ class Solution:
                 else:
                     stack.append(b*a)
             else:
-                stack.append(i)
-        return int(stack[0])
+                stack.append(int(i))
+        return stack[0]
         
