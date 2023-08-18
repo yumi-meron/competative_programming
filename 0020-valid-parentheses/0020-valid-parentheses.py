@@ -1,14 +1,14 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
-        lookup = {')':'(', ']':'[', '}':'{'}
+        lookup = {'(':')', '[':']', '{':'}'}
         for i in s:
-            if i in lookup.values():
+            if i in lookup:
                 stack.append(i)
-            elif stack and lookup[i] == stack[-1]:
-                stack.pop()
-            else:
+            elif not stack or lookup[stack[-1]] != i:
                 return False
+            else:
+                stack.pop()
         return stack == []
             
         
