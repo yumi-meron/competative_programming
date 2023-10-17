@@ -3,6 +3,7 @@ class Solution:
         most = 0
         i=0
         j= len(height)-1
+        maxh = max(height)
         while i<j:
                 diff = j-i
                 h = min(height[i], height[j])
@@ -11,6 +12,9 @@ class Solution:
                     i+=1
                 else:
                     j-=1
+                if (j-1)*maxh < most:
+                    break
+                
         return most
         
         
