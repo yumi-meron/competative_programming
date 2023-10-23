@@ -7,7 +7,7 @@ class Solution:
         max_val = now = sum(nums[:k])
         for i in range(k,len(nums)):
             now +=  nums[i] - nums[i-k]
-            max_val = max(now, max_val)
+            if now>max_val: max_val = now
             
         return max_val / k
             
