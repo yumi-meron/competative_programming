@@ -1,18 +1,20 @@
 import numpy as np
 class Solution:
     def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
+        def check(arr):
+            arr.sort()
+            diff = arr[1]-arr[0]
+            for i in range(2,len(arr)):
+                if arr[i]-arr[i-1] != diff:
+                    return False
+            return True
+        
         ans = []
-        for i,j in zip(l,r):
-            sub = sorted(nums[i:j+1])
-            diff = sub[1]- sub[0]
-            for k in range(len(sub)-1):
-                if sub[k+1]-sub[k] != sub[1]-sub[0]:
-                       ans.append(False)
-                       break
-            else:
-                ans.append(True)
-        return ans
+        for i in range(len(r)):
+            arr = nums[l[i] : r[i]+1]
+            ans.append(check(arr))
              
+        return ans
                 
             
             
